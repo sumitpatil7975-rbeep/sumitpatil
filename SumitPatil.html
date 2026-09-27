@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sumit Rajendra Patil — CSE & Engineering Portfolio</title>
+  <meta name="description" content="Computer Science & Engineering Portfolio for Sumit Rajendra Patil exploring AI, ML, and IoT hardware prototyping.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Tactile Noise Grain Overlay -->
+  <div class="noise-overlay"></div>
+
+  <!-- Fullscreen Preloader -->
+  <div id="loader">
+    <div class="loader-logo">
+      SUMIT <span>.</span>
+    </div>
+    <div class="loader-bar-bg">
+      <div class="loader-bar-fill" id="loader-fill"></div>
+    </div>
+    <div class="loader-percentage" id="loader-text">0%</div>
+  </div>
+
+
+
+  <!-- WebGL Background Canvas -->
+  <canvas id="webgl-canvas"></canvas>
+
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress-container">
+    <div class="scroll-progress-bar" id="progress-bar"></div>
+  </div>
+
+  <!-- Glass Navbar -->
+  <header class="navbar">
+    <a href="#hero" class="nav-logo">
+      SUMIT <span class="dot"></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#chapter-01" class="nav-link">About</a></li>
+      <li><a href="#chapter-02" class="nav-link">Education</a></li>
+      <li><a href="#chapter-03" class="nav-link">Skills</a></li>
+      <li><a href="#chapter-04" class="nav-link">Projects</a></li>
+      <li><a href="#chapter-07" class="nav-link">Focus Areas</a></li>
+    </ul>
+    <a href="#chapter-09" class="nav-cta btn-magnetic">Let's Talk</a>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section id="hero" class="section">
+      <div class="container hero-container">
+        <div class="hero-trio-grid">
+          
+          <!-- Left Column: Headline & Primary Action -->
+          <div class="hero-col-left hero-content">
+            <div class="hero-subtitle-badge">
+              <span class="status-dot"></span> Available for Engineering Internships
+            </div>
+            
+            <div class="hero-name-label">// SUMIT RAJENDRA PATIL — CSE STUDENT</div>
+            <h1 class="hero-title" id="hero-animated-title">
+              <span class="word">EXPLORING</span> 
+              <span class="word highlight">AI, ML</span> 
+              <span class="word">&</span> 
+              <span class="word">IOT</span> 
+              <span class="word">SYSTEMS</span>
+            </h1>
+
+            <div class="hero-actions" id="hero-buttons-left">
+              <a href="#chapter-04" class="btn-primary btn-magnetic">
+                Explore Projects <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Center Column: Futuristic Avatar Showcase -->
+          <div class="hero-col-center hero-avatar-wrapper">
+            <div class="hero-avatar-card tilt-card" id="hero-avatar-card">
+              <div class="hero-avatar-glow"></div>
+              
+              <div class="hero-avatar-img-container">
+                <img src="profile.jpg.jpeg" alt="Sumit Rajendra Patil — CSE Student" class="hero-avatar-img">
+              </div>
+
+              <!-- Floating Orbit Skill Badges -->
+              <div class="orbit-badge badge-js animate-float">
+                <i class="fa-solid fa-microchip" style="color: #68a063;"></i> c++/python
+              </div>
+              <div class="orbit-badge badge-three animate-float-medium">
+                <i class="fa-solid fa-brain" style="color: #ff5500;"></i> AI / ML
+              </div>
+              
+
+              <!-- Glass Info Overlay -->
+              <div class="hero-avatar-info-glass">
+                <div class="info-title">Sumit Rajendra Patil</div>
+                <div class="info-sub">Computer Science Engineer</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Bio, Quick Stats & Contact CTA -->
+          <div class="hero-col-right hero-content">
+            <p class="hero-description" id="hero-desc">
+              Computer Science and Engineering student at BMSIT passionate about architecting AI/ML-driven applications, prototyping IoT hardware systems, and exploring data-driven solutions.
+            </p>
+
+            <div class="hero-quick-stats" id="hero-stats">
+              <div class="stat-pill"><i class="fa-solid fa-graduation-cap"></i> BMSIT CSE</div>
+              <div class="stat-pill"><i class="fa-solid fa-star"></i> 7.43 CGPA</div>
+              <div class="stat-pill"><i class="fa-solid fa-location-dot"></i> Bangalore, IN</div>
+            </div>
+
+            
+          </div>
+
+        </div>
+      </div>
+
+      <div class="scroll-down-indicator">
+        <div class="mouse-icon">
+          <div class="wheel"></div>
+        </div>
+        <span>Scroll to Explore</span>
+      </div>
+    </section>
+
+    <!-- CHAPTER 01: WHO AM I -->
+    <section id="chapter-01" class="section">
+      <div class="container">
+        <div class="chapter-badge">Chapter 01</div>
+        <h2 class="section-title">Who Am I</h2>
+        <p class="section-subtitle">A blend of academic rigor, hardware engineering, and digital creativity.</p>
+
+        <div class="about-grid">
+          <!-- Bio Text -->
+          <div class="about-card-glass tilt-card">
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
+              <!-- Profile Image -->
+              <img src="profile.jpg.jpeg" alt="Sumit Rajendra Patil" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-orange); box-shadow: var(--shadow-sm);">
+              <div>
+                <h3 style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 800;">Sumit Rajendra Patil</h3>
+                <span style="font-size: 0.8rem; color: var(--accent-orange); font-weight: 700;">CSE Student | BMSIT</span>
+              </div>
+            </div>
+            <p class="about-bio-text">
+              Hello! I'm <strong>Sumit Rajendra Patil</strong>, a Computer Science and Engineering student at BMS Institute of Technology and Management, currently maintaining a 7.43 CGPA.
+              <br><br>
+              My engineering journey spans writing code to wiring hardware. I am actively exploring the intersections of Artificial Intelligence, Machine Learning, and the Internet of Things (IoT). I specialize in integrating microcontrollers with complex sensor arrays and prototyping intelligent systems.
+            </p>
+          </div>
+
+          <!-- Philosophy & Focus -->
+          <div class="about-card-glass tilt-card">
+            <h3 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 20px;">My Core Focus</h3>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 16px; color: var(--text-muted);">
+              <li style="display: flex; align-items: center; gap: 12px;">
+                <i class="fa-solid fa-circle-check" style="color: var(--accent-orange);"></i> <strong>IoT Prototyping:</strong> ESP32 microcontrollers, embedded systems, and circuit integrations.
+              </li>
+              <li style="display: flex; align-items: center; gap: 12px;">
+                <i class="fa-solid fa-circle-check" style="color: var(--accent-orange);"></i> <strong>AI & Machine Learning:</strong> Exploring data pipelines, predictive models, and intelligent application logic.
+              </li>
+              <li style="display: flex; align-items: center; gap: 12px;">
+                <i class="fa-solid fa-circle-check" style="color: var(--accent-orange);"></i> <strong>Problem Solving:</strong> Continuous algorithm practice and data structure optimization on LeetCode.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- CHAPTER 02: EDUCATION & JOURNEY -->
+    <section id="chapter-02" class="section">
+      <div class="container">
+        <div style="text-align: center;">
+          <div class="chapter-badge">// 02 / ACADEMICS & GROWTH</div>
+          <h2 class="section-title">Education & Milestones</h2>
+          <p class="section-subtitle" style="margin: 0 auto 40px auto;">My academic foundation and continuous skill development.</p>
+        </div>
+
+        <div class="experience-timeline">
+          <div class="timeline-line"></div>
+          <div class="timeline-line-progress" id="timeline-progress"></div>
+          <!-- Item 1: High School -->
+          <div class="exp-card-wrapper exp-right">
+            <div class="exp-card tilt-card">
+              <div class="exp-header">
+                <div class="exp-brand-info">
+                  <div class="company-badge-icon"><i class="fa-solid fa-school-flag"></i></div>
+                  <div>
+                    <h3 class="exp-role">High School (Class 10)</h3>
+                    <span class="exp-company">[ALVA'S CBSE School]</span>
+                  </div>
+                </div>
+                <span class="exp-date"><i class="fa-regular fa-calendar"></i> [Years of passing 2023]</span>
+              </div>
+              <p class="exp-desc">
+                Completed secondary education with a strong foundation in Science, Mathematics, and core subjects. Achieved [80]% marks.
+              </p>
+              <div class="exp-tags">
+                <span class="exp-tag-pill">Science</span>
+                <span class="exp-tag-pill">Mathematics</span>
+              </div>
+            </div>
+          </div>
+          <!-- Item 2: PU College -->
+          <div class="exp-card-wrapper exp-right">
+            <!-- Removed the timeline-node (dot and ring) from here -->
+            <div class="exp-card tilt-card">
+              <div class="exp-header">
+                <div class="exp-brand-info">
+                  <div class="company-badge-icon"><i class="fa-solid fa-school"></i></div>
+                  <div>
+                    <h3 class="exp-role">Pre-University (PUC) / Class 12</h3>
+                    <span class="exp-company">ALVA'S PU COLLEGE</span>
+                  </div>
+                </div>
+                <span class="exp-date"><i class="fa-regular fa-calendar"></i> 2023 - 2025</span>
+              </div>
+              <p class="exp-desc">
+                Completed Pre-University Education with a focus on Science (Physics, Chemistry, Mathematics, Computer Science). Achieved 91.3% [548/600] marks.
+              </p>
+              <div class="exp-tags">
+                <span class="exp-tag-pill">PCMCs</span>
+                <span class="exp-tag-pill">Science</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="exp-card-wrapper exp-left">
+            <!-- Removed the timeline-node (dot and ring) from here -->
+            <div class="exp-card tilt-card">
+              <div class="exp-header">
+                <div class="exp-brand-info">
+                  <div class="company-badge-icon"><i class="fa-solid fa-building-columns"></i></div>
+                  <div>
+                    <h3 class="exp-role">B.E. in Computer Science and Engineering</h3>
+                    <span class="exp-company">BMS Institute of Technology and Management (BMSIT)</span>
+                  </div>
+                </div>
+                <span class="exp-date"><i class="fa-regular fa-calendar"></i> Expected 2026</span>
+              </div>
+              <p class="exp-desc">
+                Currently pursuing a degree in CSE, focusing on algorithms, hardware integration, AI/ML concepts, and software development. Current CGPA: 7.43.
+              </p>
+              <div class="exp-tags">
+                <span class="exp-tag-pill">Algorithms</span>
+                <span class="exp-tag-pill">Machine Learning</span>
+                <span class="exp-tag-pill">IoT</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+<!-- CHAPTER 03: SKILLS & CERTIFICATIONS -->
+    <section id="chapter-03" class="section">
+      <div class="container">
+        <div style="text-align: center;">
+          <div class="chapter-badge">Chapter 03</div>
+          <h2 class="section-title">Technical Expertise</h2>
+          <p class="section-subtitle" style="margin: 0 auto 40px auto;">Hardware and software capabilities developed through hands-on coursework and projects.</p>
+        </div>
+        
+        <!-- SKILLS GRID -->
+        <div class="skills-universe-container">
+          
+          <!-- C/C++ -->
+          <div class="skill-card tilt-card" data-percent="90">
+            <div class="skill-header">
+              <div class="skill-icon-wrap"><i class="fa-solid fa-code"></i></div>
+              <div class="skill-percentage">90%</div>
+            </div>
+            <div class="skill-title">C / C++</div>
+            <div class="skill-progress-bg"><div class="skill-progress-fill"></div></div>
+          </div>
+          
+          <!-- Python -->
+          <div class="skill-card tilt-card" data-percent="90">
+            <div class="skill-header">
+              <div class="skill-icon-wrap"><i class="fa-brands fa-python"></i></div>
+              <div class="skill-percentage">90%</div>
+            </div>
+            <div class="skill-title">Python</div>
+            <div class="skill-progress-bg"><div class="skill-progress-fill"></div></div>
+          </div>
+
+          <!-- IoT & ESP32 -->
+          <div class="skill-card tilt-card" data-percent="85">
+            <div class="skill-header">
+              <div class="skill-icon-wrap"><i class="fa-solid fa-microchip"></i></div>
+              <div class="skill-percentage">85%</div>
+            </div>
+            <div class="skill-title">IoT & ESP32 Integration</div>
+            <div class="skill-progress-bg"><div class="skill-progress-fill"></div></div>
+          </div>
+
+          <!-- Data Structures & Algorithms -->
+          <div class="skill-card tilt-card" data-percent="40">
+            <div class="skill-header">
+              <div class="skill-icon-wrap"><i class="fa-solid fa-network-wired"></i></div>
+              <div class="skill-percentage">40%</div>
+            </div>
+            <div class="skill-title">Data Structures & Algorithms</div>
+            <div class="skill-progress-bg"><div class="skill-progress-fill"></div></div>
+          </div>
+
+          <!-- AI & ML -->
+          <div class="skill-card tilt-card" data-percent="30">
+            <div class="skill-header">
+              <div class="skill-icon-wrap"><i class="fa-solid fa-brain"></i></div>
+              <div class="skill-percentage">30%</div>
+            </div>
+            <div class="skill-title">Artificial Intelligence & ML</div>
+            <div class="skill-progress-bg"><div class="skill-progress-fill"></div></div>
+          </div>
+
+        </div>
+
+        <!-- CERTIFICATIONS SUBSECTION -->
+        <div style="margin-top: 80px; text-align: center;">
+          <h3 class="section-title" style="font-size: 2rem;">Certifications</h3>
+        </div>
+
+        <div style="max-width: 800px; margin: 0 auto;">
+          <div class="about-card-glass tilt-card">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+              <div style="display: flex; align-items: center; gap: 16px;">
+                <div style="background: rgba(255, 85, 0, 0.1); color: var(--accent-orange); width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 1.5rem;">
+                  <i class="fa-solid fa-certificate"></i>
+                </div>
+                <div>
+                  <h3 style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 800;">Complete 2026 Python Bootcamp</h3>
+                  <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">Udemy • Instructor: Haris Ali Khan</span>
+                </div>
+              </div>
+              <div style="text-align: right;">
+                <span style="display: block; font-size: 0.85rem; color: var(--accent-orange); font-weight: 700;"><i class="fa-regular fa-calendar"></i> March 15, 2026</span>
+                <span style="display: block; font-size: 0.8rem; color: var(--text-muted);">17.5 Total Hours</span>
+              </div>
+            </div>
+            
+            <p style="margin-top: 20px; color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+              Earned a comprehensive certificate for completing a bootcamp to learn Python from scratch. Mastered core concepts, data structures, and foundational programming logic.
+            </p>
+            
+            <div style="margin-top: 20px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+              <span class="exp-tag-pill" style="border: 1px solid rgba(255,255,255,0.1); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem;">Python</span>
+              <span class="exp-tag-pill" style="border: 1px solid rgba(255,255,255,0.1); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem;">Udemy</span>
+              <a href="https://ude.my/UC-909b3c67-2c73-4a3d-a63d-336d027c120f" target="_blank" style="margin-left: auto; color: var(--accent-orange); text-decoration: none; font-size: 0.85rem; font-weight: 600;">
+                Verify Credential (UC-909b3c67...) <i class="fa-solid fa-arrow-up-right-from-square" style="margin-left: 4px;"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    
+    <!-- CHAPTER 04: PROJECTS SHOWCASE -->
+    <section id="chapter-04" class="section projects-pinned-section">
+      <div class="projects-pinned-header">
+        <div class="chapter-badge">// 04 / SELECTED PROJECTS</div>
+        <h2 class="section-title">Academic & Personal Projects</h2>
+      </div>
+
+      <div class="projects-horizontal-wrapper">
+        <div class="projects-horizontal-track" id="projects-track">
+          
+          <!-- Project 1: Enersense -->
+          <div class="project-card-horizontal tilt-card">
+            <div class="project-media-col">
+              <img src="enersense.jpg.jpeg" alt="Enersense IoT Project" class="project-img">
+              <div class="project-overlay-badge">IoT & Hardware</div>
+            </div>
+            <div class="project-info-col">
+              <div class="project-card-top">
+                <div class="project-tags">
+                  <span class="tag-pill">ESP32</span>
+                  <span class="tag-pill">INA219</span>
+                  <span class="tag-pill">PIR Sensor</span>
+                </div>
+                <div class="project-num">01 / 02</div>
+              </div>
+              <h3 class="project-title">Enersense</h3>
+              <p class="project-desc">A smart hardware integration and energy sensing prototype. Engineered a complete circuit integrating an ESP32 microcontroller, an INA219 current sensor for power monitoring, and an HC-SR501 PIR motion sensor to create a responsive, data-driven IoT environment.</p>
+            </div>
+          </div>
+
+          <!-- Project 2: AI App -->
+          <div class="project-card-horizontal tilt-card">
+            <div class="project-media-col">
+              <img src="images/project-1-ai-nav.jpg" alt="AI Remote Navigation App" class="project-img">
+              <div class="project-overlay-badge">AI & Mobile</div>
+            </div>
+            <div class="project-info-col">
+              <div class="project-card-top">
+                <div class="project-tags">
+                  <span class="tag-pill">AI Mapping</span>
+                  <span class="tag-pill">UI Concept</span>
+                </div>
+                <div class="project-num">02 / 02</div>
+              </div>
+              <h3 class="project-title">AI Remote Navigation Prototype</h3>
+              <p class="project-desc">Designed specifications and logic for an AI-powered guide app aimed at navigating small remote villages and towns more effectively than traditional mapping, featuring interactive local shop markers and intelligent routing.</p>
+            </div>
+          </div>
+
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 05: SERVICES -->
+    <section id="chapter-05" class="section">
+      <div class="container">
+        <div style="text-align: center;">
+          <div class="chapter-badge">Chapter 05</div>
+          <h2 class="section-title">Focus Areas & Interests</h2>
+          <p class="section-subtitle" style="margin: 0 auto 40px auto;">Core domains I am exploring and building solutions within.</p>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card tilt-card">
+            <div class="service-icon"><i class="fa-solid fa-microchip"></i></div>
+            <h3 class="service-title">IoT Prototyping</h3>
+            <p class="service-desc">Wiring and programming sensor arrays (like in the Enersense project) with ESP32 controllers to bridge the physical world with digital data.</p>
+          </div>
+
+          <div class="service-card tilt-card">
+            <div class="service-icon"><i class="fa-solid fa-network-wired"></i></div>
+            <h3 class="service-title">Machine Learning</h3>
+            <p class="service-desc">Exploring algorithms and data pipelines to extract meaningful insights and create predictive models from raw datasets.</p>
+          </div>
+
+          <div class="service-card tilt-card">
+            <div class="service-icon"><i class="fa-solid fa-robot"></i></div>
+            <h3 class="service-title">Artificial Intelligence</h3>
+            <p class="service-desc">Designing conceptual logic for AI applications meant to solve real-world logistical and community problems.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 06: CONTACT -->
+    <section id="chapter-06" class="section">
+      <div class="container">
+        <div style="text-align: center;">
+          <div class="chapter-badge">Chapter 06</div>
+          <h2 class="section-title">Let's Connect</h2>
+          <p class="section-subtitle" style="margin: 0 auto 40px auto;">Interested in discussing AI, ML, IoT hardware, or engineering opportunities? Send a message!</p>
+        </div>
+
+        <div class="contact-card-glass tilt-card">
+          <form class="contact-form" id="contact-form">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" class="form-input" placeholder="e.g. Alex Morgan" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" class="form-input" placeholder="e.g. alex@company.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" class="form-textarea" placeholder="Hello..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary btn-magnetic" id="submit-btn" style="width: 100%; justify-content: center; margin-top: 12px;">
+              Send Message <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="studio-footer" id="studio-footer">
+    <div class="container footer-top-grid">
+      
+      <!-- Brand & Copyright Column -->
+      <div class="footer-brand-col">
+        <a href="#hero" class="footer-logo">
+          <span class="logo-box">S</span> SUMIT<span class="dot"></span>
+        </a>
+        <div class="footer-status-pill">
+          <span class="status-dot"></span> Available for Internships
+        </div>
+        <p class="footer-copyright">© copyright Sumit Rajendra Patil 2026. All rights reserved.</p>
+      </div>
+
+      <!-- Links Grid -->
+      <div class="footer-links-grid">
+        
+        <!-- Col 1: Pages -->
+        <div class="footer-col">
+          <h5 class="footer-col-title">Pages</h5>
+          <ul class="footer-link-list">
+            <li><a href="#hero" class="footer-link">Home</a></li>
+            <li><a href="#chapter-01" class="footer-link">About</a></li>
+            <li><a href="#chapter-02" class="footer-link">Education</a></li>
+            <li><a href="#chapter-03" class="footer-link">Skills</a></li>
+            <li><a href="#chapter-04" class="footer-link">Projects</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 2: Professional Profiles -->
+        <div class="footer-col">
+          <h5 class="footer-col-title">Profiles</h5>
+          <ul class="footer-link-list">
+            <li><a href="https://linkedin.com/in/sumitpatil25" target="_blank" class="footer-link">LinkedIn <i class="fa-brands fa-linkedin link-arrow"></i></a></li>
+            <li><a href="https://leetcode.com/u/xHwH9hnX5A/" target="_blank" class="footer-link">LeetCode <i class="fa-solid fa-code link-arrow"></i></a></li>
+            <li><a href="https://github.com" target="_blank" class="footer-link">GitHub <i class="fa-brands fa-github link-arrow"></i></a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Connect & Back to Top -->
+        <div class="footer-col">
+          <h5 class="footer-col-title">Connect</h5>
+          <ul class="footer-link-list">
+            <li><a href="#chapter-06" class="footer-link">Let's Talk</a></li>
+          </ul>
+          <div style="margin-top: 24px;">
+            <a href="#hero" class="back-to-top-btn btn-magnetic" id="back-to-top" aria-label="Back to Top">
+              <i class="fa-solid fa-arrow-up"></i> Top
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Background Watermark -->
+    <div class="footer-watermark-wrap">
+      <div class="footer-watermark-text" id="footer-watermark">Sumit Patil</div>
+    </div>
+  </footer>
+
+  <!-- CDN Script Includes -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+
+  <!-- Application Logic Scripts -->
+  <script src="js/three.js"></script>
+  <script src="js/scroll.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
