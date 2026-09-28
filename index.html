@@ -18,6 +18,66 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/responsive.css">
+
+  <!-- Light Mode Overrides -->
+  <style>
+    /* Base Transition */
+    body {
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    /* Light Mode Colors */
+    body.light-mode {
+      background-color: #f3f4f6; /* Light gray background */
+      color: #111827; /* Dark text */
+    }
+
+    body.light-mode h1, 
+    body.light-mode h2, 
+    body.light-mode h3,
+    body.light-mode .nav-logo,
+    body.light-mode .nav-link,
+    body.light-mode .footer-logo,
+    body.light-mode .footer-col-title {
+      color: #111827 !important;
+    }
+
+    body.light-mode p,
+    body.light-mode .section-subtitle,
+    body.light-mode .exp-desc,
+    body.light-mode .service-desc,
+    body.light-mode .project-desc,
+    body.light-mode .about-bio-text {
+      color: #4b5563 !important;
+    }
+
+    /* Glass Elements Override */
+    body.light-mode .navbar,
+    body.light-mode .tilt-card,
+    body.light-mode .about-card-glass,
+    body.light-mode .contact-card-glass,
+    body.light-mode .skill-card {
+      background: rgba(255, 255, 255, 0.7) !important;
+      border: 1px solid rgba(0, 0, 0, 0.1) !important;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05) !important;
+      backdrop-filter: blur(12px);
+    }
+
+    body.light-mode .form-input,
+    body.light-mode .form-textarea {
+      background: rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      color: #111827;
+    }
+
+    body.light-mode .timeline-line {
+      background: #d1d5db;
+    }
+
+    body.light-mode .footer-link {
+      color: #4b5563;
+    }
+  </style>
 </head>
 <body>
 
@@ -55,9 +115,18 @@
       <li><a href="#chapter-02" class="nav-link">Education</a></li>
       <li><a href="#chapter-03" class="nav-link">Skills</a></li>
       <li><a href="#chapter-04" class="nav-link">Projects</a></li>
-      <li><a href="#chapter-07" class="nav-link">Focus Areas</a></li>
+      <li><a href="#chapter-05" class="nav-link">Focus Areas</a></li>
     </ul>
-    <a href="#chapter-09" class="nav-cta btn-magnetic">Let's Talk</a>
+    
+    <div style="display: flex; align-items: center; gap: 15px;">
+      <!-- Theme Toggle Button -->
+      <button id="theme-toggle" aria-label="Toggle Theme" style="background: transparent; border: 1px solid rgba(150, 150, 150, 0.3); color: inherit; width: 40px; height: 40px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; transition: all 0.3s ease;">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+      
+      <!-- Existing Let's Talk Button -->
+      <a href="#chapter-06" class="nav-cta btn-magnetic">Let's Talk</a>
+    </div>
   </header>
 
   <main>
@@ -220,7 +289,6 @@
           </div>
           <!-- Item 2: PU College -->
           <div class="exp-card-wrapper exp-right">
-            <!-- Removed the timeline-node (dot and ring) from here -->
             <div class="exp-card tilt-card">
               <div class="exp-header">
                 <div class="exp-brand-info">
@@ -244,7 +312,6 @@
 
           <!-- Item 3 -->
           <div class="exp-card-wrapper exp-left">
-            <!-- Removed the timeline-node (dot and ring) from here -->
             <div class="exp-card tilt-card">
               <div class="exp-header">
                 <div class="exp-brand-info">
@@ -269,7 +336,8 @@
         </div>
       </div>
     </section>
-<!-- CHAPTER 03: SKILLS & CERTIFICATIONS -->
+
+    <!-- CHAPTER 03: SKILLS & CERTIFICATIONS -->
     <section id="chapter-03" class="section">
       <div class="container">
         <div style="text-align: center;">
@@ -565,5 +633,34 @@
   <script src="js/scroll.js"></script>
   <script src="js/animations.js"></script>
   <script src="js/main.js"></script>
+  
+  <!-- Dark/Light Mode JavaScript Logic -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const themeToggleBtn = document.getElementById("theme-toggle");
+      const themeIcon = themeToggleBtn.querySelector("i");
+      
+      // 1. Check local storage for saved theme preference
+      const currentTheme = localStorage.getItem("portfolio-theme");
+      if (currentTheme === "light") {
+        document.body.classList.add("light-mode");
+        themeIcon.classList.replace("fa-moon", "fa-sun");
+      }
+
+      // 2. Toggle the theme on button click
+      themeToggleBtn.addEventListener("click", () => {
+        document.body.classList.toggle("light-mode");
+        
+        // Swap icon and save state
+        if (document.body.classList.contains("light-mode")) {
+          themeIcon.classList.replace("fa-moon", "fa-sun");
+          localStorage.setItem("portfolio-theme", "light");
+        } else {
+          themeIcon.classList.replace("fa-sun", "fa-moon");
+          localStorage.setItem("portfolio-theme", "dark");
+        }
+      });
+    });
+  </script>
 </body>
 </html>
