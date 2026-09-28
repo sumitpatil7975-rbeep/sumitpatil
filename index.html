@@ -19,19 +19,29 @@
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/responsive.css">
 
-  <!-- Light Mode Overrides -->
+  <!-- Ultimate Dark/Light Mode Engine -->
   <style>
-    /* Base Transition */
+    /* 1. Force the default background to be purely Dark */
     body {
+      background-color: #0a0a0a !important; 
+      color: #ffffff !important;
       transition: background-color 0.4s ease, color 0.4s ease;
     }
 
-    /* Light Mode Colors */
+    /* 2. Force the background to Light when toggled */
     body.light-mode {
-      background-color: #f3f4f6; /* Light gray background */
-      color: #111827; /* Dark text */
+      background-color: #f3f4f6 !important; 
+      color: #111827 !important;
     }
 
+    /* 3. FIX: The 3D WebGL Canvas draws a black square over the background. 
+       We must fade it out in light mode so the white background actually shows! */
+    body.light-mode #webgl-canvas {
+      opacity: 0.05 !important; 
+      pointer-events: none;
+    }
+
+    /* Light Mode Text & Component Overrides */
     body.light-mode h1, 
     body.light-mode h2, 
     body.light-mode h3,
@@ -51,13 +61,12 @@
       color: #4b5563 !important;
     }
 
-    /* Glass Elements Override */
     body.light-mode .navbar,
     body.light-mode .tilt-card,
     body.light-mode .about-card-glass,
     body.light-mode .contact-card-glass,
     body.light-mode .skill-card {
-      background: rgba(255, 255, 255, 0.7) !important;
+      background: rgba(255, 255, 255, 0.8) !important;
       border: 1px solid rgba(0, 0, 0, 0.1) !important;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05) !important;
       backdrop-filter: blur(12px);
@@ -65,17 +74,17 @@
 
     body.light-mode .form-input,
     body.light-mode .form-textarea {
-      background: rgba(0, 0, 0, 0.05);
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      color: #111827;
+      background: rgba(0, 0, 0, 0.05) !important;
+      border: 1px solid rgba(0, 0, 0, 0.1) !important;
+      color: #111827 !important;
     }
 
     body.light-mode .timeline-line {
-      background: #d1d5db;
+      background: #d1d5db !important;
     }
 
     body.light-mode .footer-link {
-      color: #4b5563;
+      color: #4b5563 !important;
     }
   </style>
 </head>
@@ -94,8 +103,6 @@
     </div>
     <div class="loader-percentage" id="loader-text">0%</div>
   </div>
-
-
 
   <!-- WebGL Background Canvas -->
   <canvas id="webgl-canvas"></canvas>
@@ -119,9 +126,9 @@
     </ul>
     
     <div style="display: flex; align-items: center; gap: 15px;">
-      <!-- Theme Toggle Button -->
+      <!-- Theme Toggle Button (Starts with Sun icon to switch to Light Mode) -->
       <button id="theme-toggle" aria-label="Toggle Theme" style="background: transparent; border: 1px solid rgba(150, 150, 150, 0.3); color: inherit; width: 40px; height: 40px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; transition: all 0.3s ease;">
-        <i class="fa-solid fa-moon"></i>
+        <i class="fa-solid fa-sun"></i>
       </button>
       
       <!-- Existing Let's Talk Button -->
@@ -195,9 +202,7 @@
               <div class="stat-pill"><i class="fa-solid fa-location-dot"></i> Bangalore, IN</div>
             </div>
 
-            
           </div>
-
         </div>
       </div>
 
@@ -634,29 +639,33 @@
   <script src="js/animations.js"></script>
   <script src="js/main.js"></script>
   
-  <!-- Dark/Light Mode JavaScript Logic -->
+  <!-- Flawless Dark/Light Mode JavaScript Logic -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const themeToggleBtn = document.getElementById("theme-toggle");
       const themeIcon = themeToggleBtn.querySelector("i");
       
-      // 1. Check local storage for saved theme preference
+      // Check local storage for saved theme preference
       const currentTheme = localStorage.getItem("portfolio-theme");
+      
+      // If user previously selected light mode, set it up instantly
       if (currentTheme === "light") {
         document.body.classList.add("light-mode");
-        themeIcon.classList.replace("fa-moon", "fa-sun");
+        themeIcon.classList.replace("fa-sun", "fa-moon"); // Show moon to switch back to dark
       }
 
-      // 2. Toggle the theme on button click
+      // Toggle logic on click
       themeToggleBtn.addEventListener("click", () => {
         document.body.classList.toggle("light-mode");
         
-        // Swap icon and save state
+        // If we just switched TO light mode
         if (document.body.classList.contains("light-mode")) {
-          themeIcon.classList.replace("fa-moon", "fa-sun");
+          themeIcon.classList.replace("fa-sun", "fa-moon"); // Show moon
           localStorage.setItem("portfolio-theme", "light");
-        } else {
-          themeIcon.classList.replace("fa-sun", "fa-moon");
+        } 
+        // If we just switched TO dark mode
+        else {
+          themeIcon.classList.replace("fa-moon", "fa-sun"); // Show sun
           localStorage.setItem("portfolio-theme", "dark");
         }
       });
