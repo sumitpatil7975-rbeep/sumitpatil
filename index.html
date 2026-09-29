@@ -28,6 +28,21 @@
       transition: background-color 0.4s ease, color 0.4s ease;
     }
 
+    /* FIX: Explicitly force all headings and titles to be crisp White in Dark Mode */
+    h1, h2, h3, h4, h5, h6, 
+    .section-title, 
+    .nav-logo, 
+    .nav-link, 
+    .footer-logo, 
+    .footer-col-title {
+      color: #ffffff !important;
+    }
+
+    /* Keep paragraph text a legible light-gray in Dark Mode */
+    p, .section-subtitle, .exp-desc, .service-desc, .project-desc, .about-bio-text {
+      color: #d1d5db !important; 
+    }
+
     /* 2. Force the background to Light when toggled */
     body.light-mode {
       background-color: #f3f4f6 !important; 
@@ -45,6 +60,10 @@
     body.light-mode h1, 
     body.light-mode h2, 
     body.light-mode h3,
+    body.light-mode h4,
+    body.light-mode h5,
+    body.light-mode h6,
+    body.light-mode .section-title,
     body.light-mode .nav-logo,
     body.light-mode .nav-link,
     body.light-mode .footer-logo,
