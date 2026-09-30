@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/responsive.css">
 
-  <!-- Ultimate Dark/Light Mode Engine -->
+  <!-- Ultimate Dark/Light Mode Engine with Readable Contrast -->
   <style>
     /* 1. Force the default background to be purely Dark */
     body {
@@ -28,7 +28,7 @@
       transition: background-color 0.4s ease, color 0.4s ease;
     }
 
-    /* FIX: Explicitly force all headings and titles to be crisp White in Dark Mode */
+    /* Force all headings and titles to be crisp White in Dark Mode */
     h1, h2, h3, h4, h5, h6, 
     .section-title, 
     .nav-logo, 
@@ -38,9 +38,27 @@
       color: #ffffff !important;
     }
 
-    /* Keep paragraph text a legible light-gray in Dark Mode */
+    /* Keep paragraph text a bright, readable light-gray in Dark Mode */
     p, .section-subtitle, .exp-desc, .service-desc, .project-desc, .about-bio-text {
-      color: #d1d5db !important; 
+      color: #e5e7eb !important; 
+    }
+
+    /* FIX: Make Dark Mode cards darker and less transparent so text is readable against the 3D background */
+    .navbar,
+    .tilt-card,
+    .about-card-glass,
+    .contact-card-glass,
+    .skill-card {
+      background: rgba(15, 15, 15, 0.85) !important; /* Dark semi-transparent */
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5) !important;
+      backdrop-filter: blur(12px);
+    }
+
+    .form-input, .form-textarea {
+      background: rgba(255, 255, 255, 0.05) !important;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      color: #ffffff !important;
     }
 
     /* 2. Force the background to Light when toggled */
@@ -49,8 +67,7 @@
       color: #111827 !important;
     }
 
-    /* 3. FIX: The 3D WebGL Canvas draws a black square over the background. 
-       We must fade it out in light mode so the white background actually shows! */
+    /* Fade out the 3D Canvas in light mode so the white background actually shows */
     body.light-mode #webgl-canvas {
       opacity: 0.05 !important; 
       pointer-events: none;
@@ -85,7 +102,7 @@
     body.light-mode .about-card-glass,
     body.light-mode .contact-card-glass,
     body.light-mode .skill-card {
-      background: rgba(255, 255, 255, 0.8) !important;
+      background: rgba(255, 255, 255, 0.85) !important;
       border: 1px solid rgba(0, 0, 0, 0.1) !important;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05) !important;
       backdrop-filter: blur(12px);
@@ -397,7 +414,7 @@
           <div class="skill-card tilt-card" data-percent="85">
             <div class="skill-header">
               <div class="skill-icon-wrap"><i class="fa-solid fa-microchip"></i></div>
-              <div class="skill-percentage">55%</div>
+              <div class="skill-percentage">85%</div>
             </div>
             <div class="skill-title">IoT & ESP32 Integration</div>
             <div class="skill-progress-bg"><div class="skill-progress-fill"></div></div>
